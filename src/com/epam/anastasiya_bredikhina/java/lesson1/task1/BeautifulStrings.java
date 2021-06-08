@@ -4,41 +4,48 @@ import java.util.Scanner;
 import java.lang.String;
 
 public class BeautifulStrings {
-    public static void main(String[] args) {
-        BeautifulStrings beautifulStrings = new BeautifulStrings();
-        beautifulStrings.runStringOperations();
-    }
+
+    private int numOfStrings;
+    private Scanner scanner = new Scanner(System.in);
+
     public void runStringOperations(){
-        int i = getNumOfStrings();
-        getStrings(i);
+        try {
+            getNumOfStrings();
+            getStrings(numOfStrings);
+        }
+        catch (Exception e){
+            System.out.println("OOps! Something went wrong!");
+        }
     }
-    public int getNumOfStrings(){
-        Scanner scanner = new Scanner(System.in);
+
+    private void getNumOfStrings(){
         System.out.println("Enter number of strings, you're going to enter");
-        return scanner.nextInt();
+        numOfStrings = scanner.nextInt();
     }
-    public void getStrings(int i){
+
+    private void getStrings(int i){
         int max_length = 0;
         int min_length = 0;
         int max_index = -1;
         int min_index = -1;
         String[] strings = new String[i];
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println(String.format("Enter %d strings", i));
 
         for (int j = 0; j < i; j++) {
             strings[j] = scanner.next();
-            if (strings[j].length() > max_length){
+            if (strings[j].length() > max_length) {
                 max_length = strings[j].length();
                 max_index = j;
             }
-            if (j==0 || strings[j].length() < min_length){
+            if (j == 0 || strings[j].length() < min_length) {
                 min_length = strings[j].length();
                 min_index = j;
             }
         }
         System.out.println(String.format("Longest string: '%s', length: %d", strings[max_index], max_length));
         System.out.println(String.format("Shortest string: '%s', length: %d", strings[min_index], min_length));
+
     }
 
 }

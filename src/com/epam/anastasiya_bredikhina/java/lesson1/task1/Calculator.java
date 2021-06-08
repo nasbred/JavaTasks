@@ -3,12 +3,11 @@ package com.epam.anastasiya_bredikhina.java.lesson1.task1;
 import java.util.Scanner;
 
 public class Calculator {
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        calculator.runCalculator();
-    }
+
+    private int A, B;
+
     public void runCalculator(){
-        int A, B;
+
         String answer;
         Scanner scanner = new Scanner(System.in);
 
@@ -42,16 +41,21 @@ public class Calculator {
             System.out.println("OOps! Something went wrong!");
         }
     }
-    public void add(int a, int b){
+
+    private void add(int a, int b){
         System.out.println(a+b);
     }
-    public void subtract(int a, int b){
+
+    private void subtract(int a, int b){
         System.out.println(a-b);
     }
-    public void multiply(int a, int b){
+
+    private void multiply(int a, int b){
         System.out.println(a*b);
     }
-    public void divide(int a, int b){
+
+    private void divide(int a, int b){
         System.out.println(a/b);
     }
+
 }
